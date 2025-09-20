@@ -1,0 +1,12 @@
+{
+  "projectName": "HealthBotAI",
+  "port": 3000,
+  "openai": {
+    "model": "gpt-4o-mini",
+    "temperature": 0.2,
+    "max_tokens": 1500
+  },
+  "logging": {
+    "level": "info"
+  }
+}
