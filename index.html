@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वास्थ्य मित्र - Health Mitra | Public Health Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Language Selector -->
+    <div class="header-section">
+        <div class="d-flex justify-content-between align-items-center p-3">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-link text-white p-0 me-3">
+                    <i class="fas fa-arrow-left fs-5"></i>
+                </button>
+                <div class="language-selector">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='15'%3E%3Crect width='20' height='5' fill='%23FF9933'/%3E%3Crect y='5' width='20' height='5' fill='%23FFFFFF'/%3E%3Crect y='10' width='20' height='5' fill='%23138808'/%3E%3C/svg%3E" alt="India" class="flag-icon me-2">
+                    <span class="me-2">Regional Language</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            <button class="btn btn-link text-white p-0">
+                <i class="fas fa-volume-up fs-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Welcome Section with Robot -->
+        <div class="welcome-section">
+            <div class="row align-items-center">
+                <div class="col-7">
+                    <h1 class="welcome-title">Hello<br>FriendlyBot</h1>
+                    <p class="welcome-subtitle">Learn about actions to prevent diseases and stay healthy.</p>
+                </div>
+                <div class="col-5 text-end">
+                    <div class="robot-character">
+                        <div class="robot-head">
+                            <div class="robot-eyes">
+                                <div class="robot-eye"></div>
+                                <div class="robot-eye"></div>
+                            </div>
+                            <div class="robot-smile"></div>
+                        </div>
+                        <div class="robot-body">
+                            <div class="robot-chest"></div>
+                        </div>
+                        <div class="robot-arms">
+                            <div class="robot-arm left"></div>
+                            <div class="robot-arm right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="feature-cards">
+            <!-- Language Selector Card -->
+            <div class="feature-card language-card" onclick="toggleLanguage()">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="card-title">Regional Language</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-6">
+                    <!-- Vaccination Card -->
+                    <div class="feature-card vaccination-card" onclick="selectCategory('vaccination')">
+                        <div class="card-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <div class="card-title">Vaccination</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <!-- Outbreak Alerts Card -->
+                    <div class="feature-card alert-card" onclick="selectCategory('alerts')">
+                        <div class="card-icon virus-icon">
+                            <i class="fas fa-virus"></i>
+                        </div>
+                        <div class="card-title">Real-Time<br>Outbreak<br>Alerts</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Disease Card -->
+            <div class="feature-card disease-card" onclick="selectCategory('diseases')">
+                <div class="d-flex align-items-center">
+                    <div class="card-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <span class="card-title">Common Disease</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with Government Logo and Voice Button -->
+        <div class="footer-section">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="gov-logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9933'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-family='Arial' font-size='12' fill='white'%3E🇮🇳%3C/text%3E%3C/svg%3E" alt="Government of India" class="me-2">
+                    <small>Government<br>of India</small>
+                </div>
+                <button class="voice-btn" onclick="toggleVoice()">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <div class="check-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal fade" id="chatModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">स्वास्थ्य मित्र - Health Assistant</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Chat Messages -->
+                    <div id="chatContainer" class="chat-container">
+                        <div class="chat-message bot-message">
+                            <div class="message-content">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-robot text-success me-2"></i>
+                                    <strong>Health Mitra</strong>
+                                </div>
+                                <p class="mb-2">नमस्ते! मैं आपका स्वास्थ्य सहायक हूं। मैं आपकी सहायता कर सकता हूं:</p>
+                                <p class="mb-2">Hello! I'm your health assistant. I can help you with health questions!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Input Area -->
+                    <div class="chat-input-area">
+                        <div class="input-group">
+                            <input type="text" id="messageInput" class="form-control" 
+                                   placeholder="अपना स्वास्थ्य संबंधी प्रश्न यहां लिखें... | Type your health question here...">
+                            <button class="btn btn-success" type="button" id="sendButton">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator d-none">
+        <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <small class="ms-2">Thinking... / सोच रहा हूं...</small>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
