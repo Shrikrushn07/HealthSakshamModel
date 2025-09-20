@@ -1,0 +1,41 @@
+{
+  "name": "healthbotai",
+  "version": "1.0.0",
+  "description": "HealthBotAI \u2014 chatbot backend for HealthHarbour/HealthBot prototype (Express + OpenAI).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/HealthBotAI.git"
+  },
+  "keywords": [
+    "chatbot",
+    "health",
+    "openai",
+    "express",
+    "healthbot"
+  ],
+  "author": "Shrikrushn Pramod Bhise",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "openai": "^4.8.0",
+    "socket.io": "^4.7.2",
+    "axios": "^1.5.0",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.47.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
