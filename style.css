@@ -1,0 +1,500 @@
+/* Modern Health Mitra App Styles */
+
+:root {
+    --primary-green: #4CAF50;
+    --primary-orange: #FF9800;
+    --accent-orange: #FF5722;
+    --light-green: #81C784;
+    --cream-bg: #FFF8E1;
+    --white: #FFFFFF;
+    --text-dark: #2E2E2E;
+    --text-light: #666666;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--cream-bg) 0%, #F5F5DC 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.header-section {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    border-radius: 0 0 25px 25px;
+    box-shadow: var(--shadow);
+}
+
+.language-selector {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-selector:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+/* Main Container */
+.main-container {
+    padding: 0 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 30px 0;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.welcome-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Robot Character */
+.robot-character {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.robot-head {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 10px;
+    box-shadow: var(--shadow);
+}
+
+.robot-eyes {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px 0;
+}
+
+.robot-eye {
+    width: 15px;
+    height: 15px;
+    background: #00BCD4;
+    border-radius: 50%;
+    animation: blink 3s infinite;
+}
+
+.robot-smile {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 15px;
+    border: 3px solid white;
+    border-top: none;
+    border-radius: 0 0 30px 30px;
+}
+
+.robot-body {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #E0E0E0 0%, white 100%);
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.robot-chest {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #00BCD4;
+    border-radius: 50%;
+}
+
+.robot-arms {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+}
+
+.robot-arm {
+    width: 20px;
+    height: 50px;
+    background: linear-gradient(135deg, #E0E0E0 0%, white 100%);
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: var(--shadow);
+}
+
+.robot-arm.left {
+    left: -10px;
+    transform: rotate(-15deg);
+}
+
+.robot-arm.right {
+    right: -10px;
+    transform: rotate(15deg);
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+/* Feature Cards */
+.feature-cards {
+    margin: 30px 0;
+}
+
+.feature-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.language-card {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    color: white;
+}
+
+.vaccination-card {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    color: white;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.alert-card {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--accent-orange) 100%);
+    color: white;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.disease-card {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    color: white;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.language-card .card-icon,
+.disease-card .card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.virus-icon {
+    background: rgba(255,255,255,0.3);
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.vaccination-card .card-title,
+.alert-card .card-title {
+    font-size: 1.1rem;
+}
+
+/* Footer Section */
+.footer-section {
+    padding: 30px 0 40px;
+}
+
+.gov-logo {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.voice-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.voice-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+.check-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Chat Modal Styles */
+.modal-content {
+    border-radius: 0;
+    border: none;
+    height: 100vh;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.chat-container {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    max-height: calc(100vh - 140px);
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.bot-message .message-content {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    margin-right: auto;
+    border-bottom-left-radius: 6px;
+}
+
+.user-message .message-content {
+    background-color: var(--primary-green);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 6px;
+}
+
+.chat-input-area {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #e9ecef;
+}
+
+.chat-input-area .input-group {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.chat-input-area .form-control {
+    border: none;
+    padding: 15px 20px;
+    font-size: 14px;
+}
+
+.chat-input-area .form-control:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.chat-input-area .btn {
+    border: none;
+    padding: 15px 25px;
+    background-color: var(--primary-green);
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.quick-action-btn {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.quick-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Health Alerts */
+.health-alert {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+.health-alert.high {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.health-alert.medium {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+}
+
+.health-alert.low {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 15px;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .robot-character {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .robot-head {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .robot-body {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
