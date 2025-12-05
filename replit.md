@@ -1,6 +1,6 @@
 # Overview
 
-Health Mitra (स्वास्थ्य मित्र) is a bilingual public health chatbot application designed to provide health information and assistance in both Hindi and English. The application serves as a personal health assistant, offering information about disease symptoms, vaccination schedules, preventive care, and health alerts. Built with Flask as the backend framework, it integrates OpenAI's API for intelligent conversational responses and uses SQLite for local data storage.
+Health Saksham (स्वास्थ्य मित्र) is a bilingual public health chatbot application designed to provide health information and assistance in both Hindi and English. The application serves as a personal health assistant, offering information about disease symptoms, vaccination schedules, preventive care, and health alerts. Built with Flask as the backend framework, it integrates OpenAI's API for intelligent conversational responses and uses SQLite for local data storage.
 
 # User Preferences
 
